@@ -7,7 +7,7 @@ import discord
 from discord.ext import commands
 from dotenv import load_dotenv
 import os
-
+import logging
 
 #Commands are distributed across files to not "overfill" a file
 import admin
@@ -16,6 +16,9 @@ import core
 #Loading Token from enviroment file (.env)
 load_dotenv()
 discord_token = os.getenv('DISCORD_TOKEN')
+
+#Setting up Logging
+handler = logging.FileHandler(filename='discord_bot.log', encoding='utf-8', mode='w')
 
 #Intents + Perms
 intents = discord.Intents.default()
@@ -30,10 +33,11 @@ bot = commands.Bot(command_prefix = "m!", activity=discord.Game('with LEGOs'),in
 async def on_ready():
     print(f"Heyo! {bot.user.name} Reporting In!")
 
+
 cog_extensions = ["core","admin"]
 for i in cog_extensions:
     bot.load_extension(i)
     print(f"Loaded {i}")
 
 #Using Bot Token from the enviroment file it runs the bot
-bot.run(discord_token)
+bot.run(discord_token, log_handler=handler, log_level=logging.DEBUG)
