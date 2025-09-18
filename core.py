@@ -13,7 +13,6 @@ class Core(commands.Cog):
 
 
     #Word-Counter
-    count = 0
     @commands.Cog.listener()
     async def on_message(self, message):
         # Ignore messages from the bot itself (to avoid infinite loops)
