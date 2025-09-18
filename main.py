@@ -25,19 +25,19 @@ intents = discord.Intents.default()
 intents.members = True
 intents.message_content = True
 
+
 #Declaring Prefix as m! and setting Playing Status 
 bot = commands.Bot(command_prefix = "m!", activity=discord.Game('with LEGOs'),intents=intents)
-
-#Launch Status in the Terminal
-@bot.event
-async def on_ready():
-    print(f"Heyo! {bot.user.name} Reporting In!")
-
 
 cog_extensions = ["core","admin"]
 for i in cog_extensions:
     bot.load_extension(i)
     print(f"Loaded {i}")
+
+#Launch Status in the Terminal
+@bot.event
+async def on_ready():
+    print(f"Heyo! {bot.user.name} Reporting In!")
 
 #Using Bot Token from the enviroment file it runs the bot
 bot.run(discord_token, log_handler=handler, log_level=logging.DEBUG)
