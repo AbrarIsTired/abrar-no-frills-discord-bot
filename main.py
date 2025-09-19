@@ -5,11 +5,12 @@
 
 # Imports
 import discord
-from discord.ext import commands
+from discord.ext import commands, tasks
 from dotenv import load_dotenv
 import os
 import logging
 import asyncio
+import random
 
 # Loading Token from environment file (.env)
 load_dotenv()
@@ -23,21 +24,48 @@ intents = discord.Intents.default()
 intents.members = True
 intents.message_content = True
 
+# Discord Status Options
+status = ["with LEGOs", "in the armory", "with IEDs", "with 556"]
+
 # Declaring Prefix as m! and setting Playing Status 
-bot = commands.Bot(command_prefix="m!", activity=discord.Game('with LEGOs'), intents=intents)
+bot = commands.Bot(command_prefix="m!", help_command=None, activity=discord.Game(random.choice(status)), intents=intents)
 
 # Async function to load cogs
 async def load_cogs():
     cog_extensions = ["core"]
     for extension in cog_extensions:
-            await bot.load_extension(extension)
-            print(f"Loaded {extension}")
+        await bot.load_extension(extension)
+        print(f"Loaded {extension}")
 
+@tasks.loop(minutes=1)  # Changed to 1 minute for testing - change back to 30 for production
+async def change_status():
+    new_status = random.choice(status)
+    await bot.change_presence(activity=discord.Game(new_status))
+    print(f"Status changed to:{new_status}")  # Optional: see status changes in console
 
 # Launch Status in the Terminal
 @bot.event
 async def on_ready():
     print(f"Heyo! {bot.user.name} Reporting In!")
+    if not change_status.is_running():
+        change_status.start()
+        print("Status changer started")
+
+# Help Command + Documentation for commands
+@bot.command()
+async def help(ctx):
+    help_text = """
+    ```
+    M4 SOPMOD II Bot Commands:
+    - m!help | Display this help message.
+    - m!ping | Check the bot's latency.
+
+    Special/Fun Features:
+    - The bot will respond if you mention "m4" in your message.
+    - The bot counts and responds when you say "hello" or "python".
+    ```
+    """
+    await ctx.send(help_text)
 
 # Main async function to run the bot
 async def main():
