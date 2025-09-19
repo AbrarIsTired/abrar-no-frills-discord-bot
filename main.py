@@ -37,7 +37,8 @@ async def load_cogs():
         await bot.load_extension(extension)
         print(f"Loaded {extension}")
 
-@tasks.loop(minutes=1)  # Changed to 1 minute for testing - change back to 30 for production
+#Status Changer Task/Function - changes status every 30 minutes
+@tasks.loop(minutes=30) 
 async def change_status():
     new_status = random.choice(status)
     await bot.change_presence(activity=discord.Game(new_status))
