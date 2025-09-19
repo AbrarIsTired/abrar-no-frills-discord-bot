@@ -1,3 +1,4 @@
+# core.py
 import discord
 from discord.ext import commands
 
@@ -6,10 +7,13 @@ class Core(commands.Cog):
         self.bot = bot
         self.count = 0
 
+
+    # Simple Ping Command
     @commands.command()
     async def ping(self, ctx):
-        await ctx.send(f"Pong! {round(self.bot.latency*1000)}ms")
+        await ctx.send(f"Current Latency: {round(self.bot.latency*1000)}ms")
 
+    # Event Listener for messages containing specific words
     @commands.Cog.listener()
     async def on_message(self, message):
         if message.author == self.bot.user:
@@ -25,8 +29,6 @@ class Core(commands.Cog):
                 await message.channel.send(f"Hey, you said {word}! Count: {self.count}")
                 break
 
-        # allow commands to still work
-        await self.bot.process_commands(message)
-
-def setup(bot):
-    bot.add_cog(Core(bot))
+# Cog seutp
+async def setup(bot):
+    await bot.add_cog(Core(bot))
