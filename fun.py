@@ -26,7 +26,7 @@ class Core(commands.Cog):
         result = random.randint(1, sides)
         
         # For Nat-20s
-        if(sides == 20 and result == sides):
+        if(sides == 20 and result == 20):
             await ctx.send(f"🎲 Nat-{sides}! You rolled a {result}!")
             return None
         # Roll Result    
