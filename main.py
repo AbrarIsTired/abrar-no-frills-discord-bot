@@ -32,7 +32,7 @@ bot = commands.Bot(command_prefix="m!", help_command=None, activity=discord.Game
 
 # Async function to load cogs
 async def load_cogs():
-    cog_extensions = ["core"]
+    cog_extensions = ["fun"]
     for extension in cog_extensions:
         await bot.load_extension(extension)
         print(f"Loaded {extension}")
@@ -42,7 +42,7 @@ async def load_cogs():
 async def change_status():
     new_status = random.choice(status)
     await bot.change_presence(activity=discord.Game(new_status))
-    print(f"Status changed to:{new_status}")  # Optional: see status changes in console
+    print(f"Status changed to:{new_status}")  # Status changes in console
 
 # Launch Status in the Terminal
 @bot.event
@@ -60,6 +60,7 @@ async def help(ctx):
     M4 SOPMOD II Bot Commands:
     - m!help | Display this help message.
     - m!ping | Check the bot's latency.
+    - m!roll_dice [sides] | Roll a dice with the specified number of sides (default is 6).
 
     Special/Fun Features:
     - The bot will respond if you mention "m4" in your message.

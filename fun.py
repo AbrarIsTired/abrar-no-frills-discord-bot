@@ -1,6 +1,7 @@
 # core.py
 import discord
 from discord.ext import commands
+import random
 
 class Core(commands.Cog):
     def __init__(self, bot):
@@ -13,6 +14,15 @@ class Core(commands.Cog):
     async def ping(self, ctx):
         await ctx.send(f"Current Latency: {round(self.bot.latency*1000)}ms")
 
+    @commands.command()
+    async def roll_dice(self, ctx, sides: int = 6):
+        if sides < 1:
+            await ctx.send("Number of sides must be at least 1.")
+            return
+        result = random.randint(1, sides)
+        await ctx.send(f"🎲 You rolled a {result} on a {sides}-sided dice!")
+
+
     # Event Listener for messages containing specific words
     @commands.Cog.listener()
     async def on_message(self, message):
@@ -20,14 +30,8 @@ class Core(commands.Cog):
             return
 
         if "m4" in message.content.lower():
-            await message.channel.send(f"Hey, you said my name! Hello {message.author.mention}")
+            await message.channel.send(f"Hey, you said my name! Hiya {message.author.mention}")
 
-        word_bank = ["hello", "python"]
-        for word in word_bank:
-            if word in message.content.lower():
-                self.count += 1
-                await message.channel.send(f"Hey, you said {word}! Count: {self.count}")
-                break
 
 # Cog seutp
 async def setup(bot):
