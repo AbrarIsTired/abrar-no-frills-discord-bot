@@ -14,10 +14,11 @@ class Core(commands.Cog):
     async def ping(self, ctx):
         await ctx.send(f"Current Latency: {round(self.bot.latency*1000)}ms")
 
+    # Dice Roll Command
     @commands.command()
-    async def roll_dice(self, ctx, sides: int = 6):
+    async def dice(self, ctx, sides: int = 6):
         if sides < 1:
-            await ctx.send("Number of sides must be at least 1.")
+            await ctx.send("Number of sides must be at least 2.")
             return
         result = random.randint(1, sides)
         await ctx.send(f"🎲 You rolled a {result} on a {sides}-sided dice!")
