@@ -17,10 +17,19 @@ class Core(commands.Cog):
     # Dice Roll Command
     @commands.command()
     async def dice(self, ctx, sides: int = 6):
-        if sides < 1:
-            await ctx.send("Number of sides must be at least 2.")
-            return
+        # Guard for anything less than 2 sides
+        if(sides < 2):
+            await ctx.send("Number of sides must be a minimum of 2.")
+            return None
+        
+        # Dice Roll Logic
         result = random.randint(1, sides)
+        
+        # For Nat-20s
+        if(sides == 20 and result == sides):
+            await ctx.send(f"🎲 Nat-{sides}! You rolled a {result}!")
+            return None
+        # Roll Result    
         await ctx.send(f"🎲 You rolled a {result} on a {sides}-sided dice!")
 
 
