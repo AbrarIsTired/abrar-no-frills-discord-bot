@@ -12,8 +12,11 @@ A simple Discord bot made with discord.py featuring the M4 SOPMOD II character f
 ## Learning Goals
 
 -Understanding Discord.py cog system
+
 -Organizing bot commands into modules
+
 -Event listeners and message handling
+
 -Basic bot configuration and setup
 
 Built for friends and learning purposes.
