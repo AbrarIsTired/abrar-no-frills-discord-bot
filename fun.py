@@ -18,7 +18,7 @@ class Core(commands.Cog):
     @commands.command()
     async def dice(self, ctx, sides: int = 6):
         # Guard for anything less than 2 sides
-        if(sides < 2):
+        if(sides <= 1):
             await ctx.send("Number of sides must be a minimum of 2.")
             return None
         
