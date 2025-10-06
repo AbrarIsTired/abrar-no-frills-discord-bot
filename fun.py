@@ -39,7 +39,7 @@ class Core(commands.Cog):
         if message.author == self.bot.user:
             return
 
-        if "m4" in message.content.lower():
+        if "vector" in message.content.lower():
             await message.channel.send(f"Hey, you said my name! Hiya {message.author.mention}")
 
 

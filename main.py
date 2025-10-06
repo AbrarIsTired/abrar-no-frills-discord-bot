@@ -1,7 +1,7 @@
 # main.py
-# Abrar's Discord Bot: M4 SOPMOD II
+# Abrar's Discord Bot: Vector
 
-# Bot character based on the mobile gacha game, Girl's Frontline in where a character is named M4-SOPMOD II. Art is also from said game
+# Bot character based on the mobile gacha game, Girl's Frontline 1/2 (Based on the Kriss Vector) in where a character is named Vector/ . Art is also from said game
 
 # Imports
 import discord
@@ -25,7 +25,7 @@ intents.members = True
 intents.message_content = True
 
 # Discord Status Options
-status = ["with LEGOs", "in the armory", "with IEDs", "with 556"]
+status = ["with LEGOs", "in the armory", "with IEDs", "with .45","with 9mm", "with .22LR"]
 
 # Declaring Prefix as m! and setting Playing Status 
 bot = commands.Bot(command_prefix="m!", help_command=None, activity=discord.Game(random.choice(status)), intents=intents)
@@ -57,13 +57,13 @@ async def on_ready():
 async def help(ctx):
     help_text = """
     ```
-    M4 SOPMOD II Bot Commands:
+    Vector Bot Commands:
     - m!help | Display this help message.
     - m!ping | Check the bot's latency.
     - m!roll_dice [sides] | Roll a dice with the specified number of sides (default is 6).
 
     Special/Fun Features:
-    - The bot will respond if you mention "m4" in your message.
+    - The bot will respond if you mention "Vector" in your message.
     - The bot counts and responds when you say "hello" or "python".
     ```
     """
