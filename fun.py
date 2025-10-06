@@ -25,7 +25,7 @@ class Core(commands.Cog):
         # Dice Roll Logic
         result = random.randint(1, sides)
         
-        # For Nat-20s
+        # For Nat-Values
         if(result == sides):
             await ctx.send(f"🎲 Nat-{sides}! You rolled a {result}!")
             return None
