@@ -1,7 +1,7 @@
 # main.py
 # Abrar's Discord Bot: Vector
 
-# Bot character based on the mobile gacha game, Girl's Frontline 1/2 (Based on the Kriss Vector) in where a character is named Vector/ . Art is also from said game
+# Bot character based on the mobile gacha game, Girl's Frontline 1/2 (Based on the Kriss Vector) in where a character is named Vector/Vivi . Art is also from said game
 
 # Imports
 import discord
@@ -28,7 +28,7 @@ intents.message_content = True
 status = ["with LEGOs", "in the armory", "with IEDs", "with .45","with 9mm", "with .22LR"]
 
 # Declaring Prefix as m! and setting Playing Status 
-bot = commands.Bot(command_prefix="m!", help_command=None, activity=discord.Game(random.choice(status)), intents=intents)
+bot = commands.Bot(command_prefix="v!", help_command=None, activity=discord.Game(random.choice(status)), intents=intents)
 
 # Async function to load cogs
 async def load_cogs():
@@ -58,9 +58,9 @@ async def help(ctx):
     help_text = """
     ```
     Vector Bot Commands:
-    - m!help | Display this help message.
-    - m!ping | Check the bot's latency.
-    - m!roll_dice [sides] | Roll a dice with the specified number of sides (default is 6).
+    - v!help | Display this help message.
+    - v!ping | Check the bot's latency.
+    - v!roll_dice [sides] | Roll a dice with the specified number of sides (default is 6)
 
     Special/Fun Features:
     - The bot will respond if you mention "Vector" in your message.
