@@ -1,6 +1,6 @@
-## M4 SOPMOD II Discord Bot
+## Kriss "Vivi" Vector Discordo Bot
 
-A simple Discord bot made with discord.py featuring the M4 SOPMOD II character from Girls' Frontline. Built as a learning project to understand Discord bot development and the cog system.
+A simple Discord bot made with discord.py featuring Vector, a character from Girls' Frontline. Built as a learning project to understand Discord bot development and the cog system.
 
 ## Setup
 
