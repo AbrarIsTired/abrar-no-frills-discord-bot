@@ -17,12 +17,12 @@ class Core(commands.Cog):
     # Rock Paper Scissors Command
     @commands.command()
     async def rps(self, ctx, user_choice: str = None):
-        choices = ["rock", "paper", "scissors"] # Available choices for Bot and User
-        user_choice = user_choice.lower()
-
         if user_choice is None: # Check for no input
             await ctx.send("Please choose rock, paper, or scissors.")
             return None
+
+        choices = ["rock", "paper", "scissors"] # Available choices for Bot and User
+        user_choice = user_choice.lower()
 
         if user_choice not in choices: # Check for invalid value
             await ctx.send("Invalid choice! Please choose rock, paper, or scissors.")
