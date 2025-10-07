@@ -40,7 +40,7 @@ class Core(commands.Cog):
             return
 
         if "vector" in message.content.lower():
-            await message.channel.send(f"Hey, you said my name! Hiya {message.author.mention}")
+            await message.channel.send(f"Yo Commander, what do you want? I'm busy right now")
 
 
 # Cog seutp

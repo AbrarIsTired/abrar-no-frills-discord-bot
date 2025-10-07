@@ -47,7 +47,7 @@ async def change_status():
 # Launch Status in the Terminal
 @bot.event
 async def on_ready():
-    print(f"Heyo! {bot.user.name} Reporting In!")
+    print(f"Long time no see, Commander… Neural module nominal, all limbs accounted for, I’m not scraps yet… I’m glad to see you again, Commander, you’re like the sun after a storm.")
     if not change_status.is_running():
         change_status.start()
         print("Status changer started")
