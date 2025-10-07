@@ -42,7 +42,7 @@ async def load_cogs():
 async def change_status():
     new_status = random.choice(status)
     await bot.change_presence(activity=discord.Game(new_status))
-    print(f"Status changed to:{new_status}")  # Status changes in console
+    print(f"Status changed to: {new_status}")  # Status changes in console
 
 # Launch Status in the Terminal
 @bot.event
@@ -60,7 +60,7 @@ async def help(ctx):
     Vector Bot Commands:
     - v!help | Display this help message.
     - v!ping | Check the bot's latency.
-    - v!roll_dice [sides] | Roll a dice with the specified number of sides (default is 6)
+    - v!dice [sides] | Roll a dice with the specified number of sides (default is 6)
 
     Special/Fun Features:
     - The bot will respond if you mention "Vector" in your message.
