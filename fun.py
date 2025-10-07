@@ -20,9 +20,13 @@ class Core(commands.Cog):
         choices = ["rock", "paper", "scissors"] # Available choices for Bot and User
         user_choice = user_choice.lower()
 
-        if user_choice not in choices or user_choice is None: # Check for invalid value
+        if user_choice is None: # Check for no input
+            await ctx.send("Please choose rock, paper, or scissors.")
+            return None
+
+        if user_choice not in choices: # Check for invalid value
             await ctx.send("Invalid choice! Please choose rock, paper, or scissors.")
-            return
+            return None
 
         # Bot Choice
         bot_choice = random.choice(choices)
