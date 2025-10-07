@@ -61,6 +61,7 @@ async def help(ctx):
     - v!help | Display this help message.
     - v!ping | Check the bot's latency.
     - v!dice [sides] | Roll a dice with the specified number of sides (default is 6)
+    - v!rps [rock || paper || scissors] | Play Rock-Paper-Scissors against the bot.
 
     Special/Fun Features:
     - The bot will respond if you mention "Vector" in your message.

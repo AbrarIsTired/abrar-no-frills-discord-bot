@@ -14,6 +14,31 @@ class Core(commands.Cog):
     async def ping(self, ctx):
         await ctx.send(f"Current Latency: {round(self.bot.latency*1000)}ms")
 
+    # Rock Paper Scissors Command
+    @commands.command()
+    async def rps(self, ctx, user_choice: str = None):
+        choices = ["rock", "paper", "scissors"] # Available choices for Bot and User
+        user_choice = user_choice.lower()
+
+        if user_choice not in choices or user_choice is None: # Check for invalid value
+            await ctx.send("Invalid choice! Please choose rock, paper, or scissors.")
+            return
+
+        # Bot Choice
+        bot_choice = random.choice(choices)
+        result = ""
+
+        # Winner Logic
+        if user_choice == bot_choice:
+            result = "It's a tie!"
+        if(user_choice == "rock" and bot_choice == "scissors") or (user_choice == "paper" and bot_choice == "rock") or (user_choice == "scissors" and bot_choice == "paper"):
+            result = "You win!"
+        elif user_choice != bot_choice:
+            result = "I win!"
+        
+        # Result Output
+        await ctx.send(f"You chose {user_choice}, I chose {bot_choice}. {result}")
+
     # Dice Roll Command
     @commands.command()
     async def dice(self, ctx, sides: int = 6):
@@ -41,6 +66,8 @@ class Core(commands.Cog):
 
         if "vector" in message.content.lower():
             await message.channel.send(f"Yo Commander, what do you want? I'm busy right now")
+
+    
 
 
 # Cog seutp
