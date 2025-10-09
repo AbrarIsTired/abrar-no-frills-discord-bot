@@ -1,4 +1,4 @@
-## Kriss "Vivi" Vector Discordo Bot
+## Kriss "Vivi" Vector Discord Bot
 
 A simple Discord bot made with discord.py featuring Vector, a character from Girls' Frontline. Built as a learning project to understand Discord bot development and the cog system.
 
