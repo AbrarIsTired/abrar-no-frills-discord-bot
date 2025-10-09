@@ -12,18 +12,18 @@ class Fun(commands.Cog):
     # Simple Ping Command
     @commands.command()
     async def ping(self, ctx):
-        await ctx.send(f"Current Latency: {round(self.bot.latency*1000)}ms")
+        embed = discord.Embed(
+            title ="🏓 Ping!",
+            description=f"Pong! Latency is {round(self.bot.latency*1000)}ms",
+            color=discord.Color.green()
+        )
+        await ctx.send(embed=embed)
+        #await ctx.send(f"Current Latency: {round(self.bot.latency*1000)}ms")
 
     # Rock Paper Scissors Command
     @commands.command()
     async def rps(self, ctx, user_choice: str = None):
         
-        # Tooltip/Description
-        RPS_EMOJI = {
-            "rock": "🪨",
-            "paper": "📄",
-            "scissors": "✂️"
-        }
         if user_choice is None: # Check for no input
             await ctx.send("Please choose rock, paper, or scissors.")
             return None
