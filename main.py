@@ -69,14 +69,14 @@ async def help(ctx):
         "`v!help` | Display this help message.\n"
         "`v!ping` | Check the bot's latency.\n"
         "`v!dice [sides]` | Roll a dice (default 6 sides).\n"
-        "`v!rps [r/p/s]` | Play Rock-Paper-Scissors."
+        "`v!rps [rock/paper/scissors]` | Play Rock-Paper-Scissors."
     )
     embed.add_field(name="🛠️ General/Fun Commands", value=fun_commands, inline=False)
 
     # Admin Commands Field
     admin_commands = (
-        "`v!shutdown` | Safely shut down the bot. (Owner Only)\n"
-        "`v!clear [amount]` | Clear messages (2-100). (Owner Only)"
+        "`v!shutdown` | Safely shut down the bot.\n"
+        "`v!clear [amount]` | Clear messages (2-100)."
     )
     embed.add_field(name="⚙️ Admin Commands (Owner Only)", value=admin_commands, inline=False)
     
