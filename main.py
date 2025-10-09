@@ -32,7 +32,7 @@ bot = commands.Bot(command_prefix="v!", help_command=None, activity=discord.Game
 
 # Async function to load cogs
 async def load_cogs():
-    cog_extensions = ["fun"]
+    cog_extensions = ["fun", "admin"] # Cog/File List
     for extension in cog_extensions:
         await bot.load_extension(extension)
         print(f"Loaded {extension}")
@@ -65,7 +65,6 @@ async def help(ctx):
 
     Special/Fun Features:
     - The bot will respond if you mention "Vector" in your message.
-    - The bot counts and responds when you say "hello" or "python".
     ```
     """
     await ctx.send(help_text)

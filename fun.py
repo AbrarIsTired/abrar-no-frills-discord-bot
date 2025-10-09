@@ -3,7 +3,7 @@ import discord
 from discord.ext import commands
 import random
 
-class Core(commands.Cog):
+class Fun(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         self.count = 0
@@ -76,4 +76,4 @@ class Core(commands.Cog):
 
 # Cog seutp
 async def setup(bot):
-    await bot.add_cog(Core(bot))
+    await bot.add_cog(Fun(bot))
