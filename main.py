@@ -52,22 +52,42 @@ async def on_ready():
         change_status.start()
         print("Status changer started")
 
-# Help Command + Documentation for commands
+
+
+# Help Command. Overrides default help command. Learning Embeds
 @bot.command()
 async def help(ctx):
-    help_text = """
-    ```
-    Vector Bot Commands:
-    - v!help | Display this help message.
-    - v!ping | Check the bot's latency.
-    - v!dice [sides] | Roll a dice with the specified number of sides (default is 6)
-    - v!rps [rock || paper || scissors] | Play Rock-Paper-Scissors against the bot.
+    # Create the Embed object
+    embed = discord.Embed(
+        title="🤖 Vector Bot Commands (v!)",
+        description="Long time no see, Commander. Here's a list of my current protocols.",
+        color=discord.Color.blue() # A nice blue color
+    )
 
-    Special/Fun Features:
-    - The bot will respond if you mention "Vector" in your message.
-    ```
-    """
-    await ctx.send(help_text)
+    # General/Fun Commands Field
+    fun_commands = (
+        "`v!help` | Display this help message.\n"
+        "`v!ping` | Check the bot's latency.\n"
+        "`v!dice [sides]` | Roll a dice (default 6 sides).\n"
+        "`v!rps [r/p/s]` | Play Rock-Paper-Scissors."
+    )
+    embed.add_field(name="🛠️ General/Fun Commands", value=fun_commands, inline=False)
+
+    # Admin Commands Field
+    admin_commands = (
+        "`v!shutdown` | Safely shut down the bot. (Owner Only)\n"
+        "`v!clear [amount]` | Clear messages (2-100). (Owner Only)"
+    )
+    embed.add_field(name="⚙️ Admin Commands (Owner Only)", value=admin_commands, inline=False)
+    
+    # Special Features Field
+    embed.add_field(
+        name="⭐ Special Feature", 
+        value="I'll respond if you mention my name, **Vector**, in a message!", 
+        inline=False
+    )
+
+    await ctx.send(embed=embed)
 
 # Main async function to run the bot
 async def main():

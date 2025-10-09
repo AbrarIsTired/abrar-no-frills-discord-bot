@@ -17,6 +17,13 @@ class Fun(commands.Cog):
     # Rock Paper Scissors Command
     @commands.command()
     async def rps(self, ctx, user_choice: str = None):
+        
+        # Tooltip/Description
+        RPS_EMOJI = {
+            "rock": "🪨",
+            "paper": "📄",
+            "scissors": "✂️"
+        }
         if user_choice is None: # Check for no input
             await ctx.send("Please choose rock, paper, or scissors.")
             return None
@@ -34,14 +41,15 @@ class Fun(commands.Cog):
 
         # Winner Logic
         if user_choice == bot_choice:
-            result = "It's a tie!"
+            result = "It's a tie Commander!"
         if(user_choice == "rock" and bot_choice == "scissors") or (user_choice == "paper" and bot_choice == "rock") or (user_choice == "scissors" and bot_choice == "paper"):
-            result = "You win!"
+            result = "You win Commander!"
         elif user_choice != bot_choice:
-            result = "I win!"
+            result = "I win. Better luck next time!"
         
         # Result Output
         await ctx.send(f"You chose {user_choice}, I chose {bot_choice}. {result}")
+        
 
     # Dice Roll Command
     @commands.command()
