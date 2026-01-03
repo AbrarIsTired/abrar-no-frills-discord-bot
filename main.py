@@ -22,7 +22,7 @@ intents.members = True
 intents.message_content = True
 
 # Discord Status Options
-status = ["with LEGOs", "in the armory", "with IEDs", "with .45","with 9mm", "with .22LR"]
+status = ["with LEGOs", "in the armory", "with IEDs", "with .45","with 9mm", "with .22LR", "with Fire"]
 
 # Declaring Prefix as m! and setting Playing Status 
 bot = commands.Bot(command_prefix="v!", help_command=None, activity=discord.Game(random.choice(status)), intents=intents)
