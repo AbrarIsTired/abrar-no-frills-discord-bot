@@ -16,9 +16,6 @@ import random
 load_dotenv()
 discord_token = os.getenv('DISCORD_TOKEN')
 
-# Setting up Logging
-handler = logging.FileHandler(filename='discord_bot.log', encoding='utf-8', mode='w')
-
 # Intents + Perms
 intents = discord.Intents.default()
 intents.members = True
