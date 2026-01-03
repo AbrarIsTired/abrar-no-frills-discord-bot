@@ -1,7 +1,7 @@
 # main.py
 # Abrar's Discord Bot: Vector
 
-# Bot character based on the mobile gacha game, Girl's Frontline 1/2 (Based on the Kriss Vector) in where a character is named Vector/Vivi . Art is also from said game
+# Bot character based on the game series, Girl's Frontline. This character in said game is based on the 45ACP Variant of the Kriss Vector
 
 # Imports
 import discord
